@@ -30,22 +30,39 @@ def each_text():
                     text = pdf.get_all_text()
                     f.write(f"ソースファイル:{file}\n{text}\n\n")
 
+def file_text():
+    file = input("ファイルのパスを入力してください。")
+    filename = os.path.splitext(file)[0] # 拡張子を取り除いたファイル名を取得
+    with open(f"output/{filename}.txt", "w") as f:
+        pdf = PDF.Read_PDF(file)
+        text = pdf.get_all_text()
+        f.write(f"{text}\n\n")
 
-print("1:特定のフォルダー内のすべてのPDFを同じテキストファイルに出力する")
-print("2:特定のフォルダー内のすべてのPDFを別々のテキストファイルに出力する")
-print("3:ファイルを指定してテキストファイルに出力する")
-print("処理を選択してください。")
-selext = int(input())
 
-if(selext==1):
-    print("1が選択されました。")
-    all_text()
-    
-elif(selext==2):
-    print("2が選択されました。")
-    each_text()
-    
-    
+
+while True:
+    print("1:特定のフォルダー内のすべてのPDFを同じテキストファイルに出力する")
+    print("2:特定のフォルダー内のすべてのPDFを別々のテキストファイルに出力する")
+    print("3:ファイルを指定してテキストファイルに出力する")
+    try:
+        selext = int(input("処理を選択してください。:"))
+    except ValueError:
+        print("数字を入力してください。")
+        continue
+    if selext == 1:
+        print("1が選択されました。")
+        all_text()
+        break
+    elif selext == 2:
+        print("2が選択されました。")
+        each_text()
+        break
+    elif selext == 3:
+        print("3が選択されました。")
+        file_text()
+        break
+    else:
+        print("1~3の数字を入力してください。")
 
 
 
