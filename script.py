@@ -39,30 +39,31 @@ def file_text():
         f.write(f"{text}\n\n")
 
 
+def main():
+    while True:
+        print("1:特定のフォルダー内のすべてのPDFを同じテキストファイルに出力する")
+        print("2:特定のフォルダー内のすべてのPDFを別々のテキストファイルに出力する")
+        print("3:ファイルを指定してテキストファイルに出力する")
+        try:
+            selext = int(input("処理を選択してください。:"))
+        except ValueError:
+            print("数字を入力してください。")
+            continue
+        if selext == 1:
+            print("1が選択されました。")
+            all_text()
+            break
+        elif selext == 2:
+            print("2が選択されました。")
+            each_text()
+            break
+        elif selext == 3:
+            print("3が選択されました。")
+            file_text()
+            break
+        else:
+            print("1~3の数字を入力してください。")
 
-while True:
-    print("1:特定のフォルダー内のすべてのPDFを同じテキストファイルに出力する")
-    print("2:特定のフォルダー内のすべてのPDFを別々のテキストファイルに出力する")
-    print("3:ファイルを指定してテキストファイルに出力する")
-    try:
-        selext = int(input("処理を選択してください。:"))
-    except ValueError:
-        print("数字を入力してください。")
-        continue
-    if selext == 1:
-        print("1が選択されました。")
-        all_text()
-        break
-    elif selext == 2:
-        print("2が選択されました。")
-        each_text()
-        break
-    elif selext == 3:
-        print("3が選択されました。")
-        file_text()
-        break
-    else:
-        print("1~3の数字を入力してください。")
 
-
-
+if __name__ == "__main__":
+    main()
