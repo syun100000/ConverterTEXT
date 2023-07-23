@@ -8,7 +8,7 @@ build_exe_options = {"packages": ["os"], "excludes": ["tkinter"]}
 exe = Executable(
     script="script.py",
     base="Console",
-    target_name="script"
+    target_name="ConverterTEXT"
 )
 
 # setup関数を呼び出して、実行可能ファイルをビルド
